@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
 <head>
   <style>
@@ -7,23 +6,16 @@
     }
   </style>
 
-  <!-- load requirejs -->
-  <script type="text/javascript" src="node_modules/requirejs/require.js"></script>
+  <script type="text/javascript" src="node_modules/RequireJS/require.js"></script>
 
-  <!-- load the VizAPI dev bootstrap helper -->
   <script type="text/javascript" src="node_modules/@pentaho/viz-api/dev-bootstrap.js"></script>
 
-  <!-- configure AMD for the sample visualization -->
   <script>
+    // Needed only in a sandbox environment.
     require.config({
       paths: {
         "pentaho/visual/samples/bar": ".",
         "d3": "./node_modules/d3/build/d3"
-      },
-      config: {
-        "pentaho/service": {
-          "pentaho/visual/samples/bar/config": "pentaho.config.spec.IRuleSet"
-        }
       }
     });
   </script>
@@ -69,21 +61,6 @@
       // Create the visualization view.
       var BaseView = context.get(baseViewFactory);
       BaseView.createAsync(viewSpec).then(function(view) {
-
-        // Handle the execute action.
-        view.on("pentaho/visual/action/execute", {
-          "do": function(action) {
-            alert("Executed " + action.dataFilter.contentKey);
-          }
-        });
-
-        // Handle the select action.
-        view.on("pentaho/visual/action/select", {
-          "finally": function(action) {
-            document.getElementById("messages_div").innerText = "Selected: " + action.dataFilter.contentKey;
-          }
-        });
-
         // Render the visualization.
         view.update();
       });
@@ -92,10 +69,6 @@
 </head>
 
 <body>
-  <!-- div that will contain the visualization -->
   <div id="viz_div"></div>
-
-  <!-- div that will display messages -->
-  <div id="messages_div"></div>
 </body>
 </html>
