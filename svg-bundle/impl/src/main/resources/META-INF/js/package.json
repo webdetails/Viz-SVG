@@ -2,7 +2,7 @@
   "name": "${project.artifactId}",
   "version": "${project.version}",
   "private": true,
-  "description": "Pentaho Visual Samples D3-Bar",
+  "description": "Pentaho Visual Samples SVG",
   "license": "MIT",
 
   "config": {

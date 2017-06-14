@@ -5,11 +5,11 @@
 
   <parent>
     <groupId>org.pentaho</groupId>
-    <artifactId>pentaho-visual-samples-bar-modules</artifactId>
+    <artifactId>pentaho-visual-samples-svg-modules</artifactId>
     <version>0.0.1</version>
   </parent>
 
-  <artifactId>pentaho-visual-samples-bar-assembly</artifactId>
+  <artifactId>pentaho-visual-samples-svg-assembly</artifactId>
   <version>0.0.1</version>
   <packaging>kar</packaging>
 
@@ -20,7 +20,7 @@
   <dependencies>
     <dependency>
       <groupId>org.pentaho</groupId>
-      <artifactId>pentaho-visual-samples-bar</artifactId>
+      <artifactId>pentaho-visual-samples-svg</artifactId>
       <version>0.0.1</version>
     </dependency>
   </dependencies>
