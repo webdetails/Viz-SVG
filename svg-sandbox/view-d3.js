@@ -23,9 +23,8 @@ define([
           }
         ]
       },
-      
-	  //var svg = "./utility-vehicle-health.svg"
-      _updateAll: function() {
+    
+    _updateAll: function() {
         d3.select(this.domContainer).html(template);
       }
     });
