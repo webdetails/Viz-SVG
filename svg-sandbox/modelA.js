@@ -19,7 +19,7 @@ define([
           {
             name: "svg",
             type: "string",
-            value: "./utility-vehicle-health.svg",
+            value: "./us.svg",
             isRequired: true
           }
         ]

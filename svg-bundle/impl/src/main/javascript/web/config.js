@@ -14,47 +14,20 @@
  * limitations under the License.
  */
 define(["module"], function(module) {
-
-  var vizId = module.id.replace(/(\w+)$/, "model");
-
   return {
     rules: [
-      // Sample rule
-      {
-        priority: -1,
-        select: {
-          type: vizId
-        },
-        apply: {
-          props: {
-            barSize: {value: 40}
-          }
-        }
-      },
-
       // DET integration
       {
         priority: -1,
         select: {
-          type: vizId,
+          type: [
+			module.id.replace(/(\w+)$/, "model"),
+			module.id.replace(/(\w+)$/, "modelA")
+		  ],
           application: "pentaho-det"
         },
         apply: {
           supportedModes: ["STREAM", "MODEL"]
-        }
-      },
-
-      // Analyzer integration
-      {
-        priority: -1,
-        select: {
-          type: vizId,
-          application: "pentaho-analyzer"
-        },
-        apply: {
-          application: {
-            keepLevelOnDrilldown: false
-          }
         }
       }
     ]

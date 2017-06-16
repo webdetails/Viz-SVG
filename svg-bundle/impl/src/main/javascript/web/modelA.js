@@ -12,14 +12,14 @@ define([
     var svgModel = BaseModel.extend({
       type: {
         id: module.id,
-        styleClass: "pentaho-visual-samples-svg",
-        label: "SVG",
+        styleClass: "pentaho-visual-samples-svgA",
+        label: "SVG A",
         defaultView: "./view-svg",
         props: [
           {
             name: "svg",
             type: "string",
-            value: "./utility-vehicle-health.svg",
+            value: "./us.svg",
             isRequired: true,
 			isBrowsable: false
           },
