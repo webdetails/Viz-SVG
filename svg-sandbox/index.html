@@ -26,7 +26,7 @@
       "pentaho/data/Table",
       "pentaho/visual/base/view",
       "pentaho/visual/samples/bar/model",
-      "json!./sales-by-product-family.json"
+      "json!./svgQuery.json"
     ], function(Context, Table, baseViewFactory, barModelFactory, dataSpec) {
 
       // Setup up a VizAPI context.
@@ -35,8 +35,7 @@
       // Create the visualization model.
       var modelSpec = {
         "data": new Table(dataSpec),
-        "category": {attributes: ["productFamily"]},
-        "measure": {attributes: ["sales"]}
+         "category": {attributes: ["changeType", "svgElementID", "styleProperty", "value"]}
       };
 
       var BarModel = context.get(barModelFactory);
