@@ -1,23 +1,15 @@
 {
   "model": [
-	{"name": "attribute", "type": "string", "label": "Attribute"},
 	{"name": "svgElementID", "type": "string", "label": "svg Element ID"},
-	{"name": "value", "type": "string", "label": "Value"}
+	{"name": "value", "type": "number", "label": "Value"}
   ],
   "rows": [
-	{"c": ["text", "TemperatureStatus",  "153"]},
-	{"c": ["fill", "TemperatureCircle",  "red"]},
-	{"c": ["text", "MovementStatus",  "0"]},
-	{"c": ["fill", "MovementCircle",  "orange"]},
-	{"c": ["text", "LoadWeightStatus", "1947"]},
-	{"c": ["fill", "LoadWeightCircle", "green"]},
-	{"c": ["text", "AirPressureStatus",  "23.2"]},
-	{"c": ["fill", "AirPressureCircle",  "red"]},
-	{"c": ["text", "AxleVibrationStatus",  "10"]},
-	{"c": ["fill", "AxleVibrationCircle",  "green"]},
-	{"c": ["fill", "LightsCircle",  "yellow"]},
-	{"c": ["width", "LightsCircle",  "4"]},
-	{"c": ["height", "LightsCircle",  "4"]},
-	{"c": ["text", "LightsStatus",  "1"]}
+	{"c": ["Temperature",  "2"]},
+	{"c": ["Movement",  "6"]},
+	{"c": ["MovementTest",  "6"]},
+	{"c": ["LoadWeight", "4"]},
+	{"c": ["AirPressure",  "5"]},
+	{"c": ["AxleVibration",  "8"]},
+	{"c": ["Lights",  "3"]}
   ]
 }

@@ -35,7 +35,8 @@
       // Create the visualization model.
       var modelSpec = {
         "data": new Table(dataSpec),
-         "category": {attributes: ["changeType", "svgElementID", "styleProperty", "value"]}
+         "category": {attributes: ["svgElementID"]},
+		 "measure": {attributes: ["value"]}
       };
 
       var BarModel = context.get(barModelFactory);

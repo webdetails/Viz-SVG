@@ -20,53 +20,50 @@ define([
 		var template = '<object class="' + this.model.type.styleClass + '" data="' + svg + '"  width="100%" type="image/svg+xml"  >Your browser doesn\'t support SVG</object>';
         this.domContainer.innerHTML = template;
 		
-		 // The data Model
-        var model = this.model;
-
-        var dataTable = model.data;
+		
+		var viewModel = this.model.toViewModel();
+	
 		var that = this;
 
 		
 		var domObject = this.domContainer.querySelector("object");
 		domObject.addEventListener("load", function(event) {
 			var svgDoc = this.getSVGDocument();
-			that.changeSVG(svgDoc, dataTable);
+			that.changeSVG(svgDoc, viewModel);
 		});
 		
       },
-		changeSVG: function(svgDoc, dataTable){
-			debugger;
-			var nRows = dataTable.getNumberOfRows();
+		changeSVG: function(svgDoc, viewModel){
+			if (!svgDoc){
+			   Logger.log("### UNABLE TO GET SVG DOCUMENT ###");
+			   return;
+			}
 			
 			//Change to visual Row
-			var changeTypeColumn = 0;
-			var svgElementID = 1;
-			var value = 2; 
+			var idIdx = 0;
+			var attributeIdx = 1;
+			var valueIdx = 2; 
 					
-			for (var i = 0; i < nRows; i++) {
-                       
-				if (svgDoc) {
-					var attr = dataTable.getValue(i, changeTypeColumn)
+			viewModel.forEach(function(row, rowIdx){
 				
-					if (attr == "text") {
-						//CHANGING TEXT CONTENT based on svgElementID
-						var svgId = dataTable.getValue(i,svgElementID);
-						var text = svgDoc.getElementById(svgId);
-						
-						text.textContent = dataTable.getValue(i,value);
-                           
-                    } else  {
-						//CHANGING ITEM STYLE ATTRIBUTES
-						var svgId = dataTable.getValue(i,svgElementID);
-						var item = svgDoc.getElementById(svgId);
-						
-						item.style[attr] = dataTable.getValue(i,value);
-						
-					} 
-				} else {
-				   Logger.log("### UNABLE TO GET SVG DOCUMENT ###");
+				var svgId = row[idIdx];
+				var attr = row[attributeIdx];
+				var value = row[valueIdx];
+				
+				var item = svgDoc.getElementById(svgId);
+				if(!item) {
+					return;
 				}
-			}
+				
+				if (attr == "text") {
+					//CHANGING TEXT CONTENT based on svgElementID
+					item.textContent = value;
+					return;
+				}
+
+				//CHANGING ITEM STYLE ATTRIBUTES						
+				item.style[attr] = value;
+			});
 		}
     });
 

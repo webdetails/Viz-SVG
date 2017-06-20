@@ -9,7 +9,7 @@ define([
     
     var BaseModel = context.get(baseModelFactory);
     
-    var svgModel = BaseModel.extend({
+    var SvgModel = BaseModel.extend({
       type: {
         id: module.id,
         styleClass: "pentaho-visual-samples-svg",
@@ -43,6 +43,6 @@ define([
       }
     });
     
-    return svgModel;
+    return SvgModel;
   };
 });
