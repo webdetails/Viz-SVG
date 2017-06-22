@@ -68,35 +68,37 @@ define([
 		  
 		  for(var rowIdx=0; rowIdx < nRows; rowIdx++){
 			
-			var category = data.getFormattedValue(rowIdx, idCol);
-			var props = this.toProps(category);
-			var measures = measureCols.map(function(measureCol){
+			var dataId = data.getFormattedValue(rowIdx, idCol);
+			var svgPartforDataID = this.getSvgPartforDataID(dataId);
+			var dataValue = measureCols.map(function(measureCol){
 				return data.getValue(rowIdx, measureCol);
 			});
 			
-			props.forEach(function(prop){
-				 
-				var attr = this.toAttribute(category, prop, measures);
-				var value = this.toValue(category, prop, measures);
-				var id = this.toId(category, prop, measures);
+			svgPartforDataID.forEach(function(prop){
+				
+				var id = this.toSvgId(dataId, prop, dataValue); 
+				var attr = this.toSvgAttribute(dataId, prop, dataValue);
+				var value = this.toSvgValue(dataId, prop, dataValue);
+				
 				viewModel.push([id, attr, value]);
 			},this);
 		  }
 		  return viewModel;
 	  },
-		toId: function(category, prop){
-			return category;
-		},
-		toProps: function(category){
-			return category;
+		getSvgPartforDataID: function(dataId){
+			return dataId;
 		},
 		
-		toAttribute: function(category, prop, measures) {
+		toSvgId: function(dataId, prop){
+			return dataId;
+		},
+		
+		toSvgAttribute: function(dataId, prop, dataValue) {
 			return prop;
 		},
 		
-		toValue: function(category, prop, measures) {
-			return measures[0];
+		toSvgValue: function(dataId, prop, dataValue) {
+			return dataValue[0];
 		}
     });
     

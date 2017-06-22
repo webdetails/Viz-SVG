@@ -38,15 +38,16 @@ define([
 				}
 			]
 		},
-		toId: function(category, prop){
-			return category + prop;
-		},
-		
-	  	toProps: function(category){
+		//get
+	  	getSvgPartforDataID: function(dataId){
 			return ["Status", "Circle"];
 		},
 		
-		toAttribute: function(category, prop, measures) {
+		toSvgId: function(dataId, prop){
+			return dataId + prop;
+		},
+		
+		toSvgAttribute: function(dataId, prop, dataValue) {
 			switch(prop){
 				case "Status": return "text";
 				case "Circle": return "fill";
@@ -54,10 +55,10 @@ define([
 			return prop;
 		},
 		
-		toValue: function(category, prop, measures) {
+		toSvgValue: function(dataId, prop, dataValue) {
 			switch(prop){
-				case "Status": return measures;
-				case "Circle": return measures > 5 ? "green" : "red";
+				case "Status": return dataValue;
+				case "Circle": return dataValue > 5 ? "green" : "red";
 			}
 		}
     });

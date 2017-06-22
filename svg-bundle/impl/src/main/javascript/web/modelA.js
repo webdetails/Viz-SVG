@@ -39,25 +39,25 @@ define([
 			]
 		},
 		
-	  	toProps: function(id){
+	  	getSvgPartforDataID: function(dataId){
 			return ["fill", "stroke"];
 		},
 		
-		toAttribute: function(id, prop, measures) {
+		toSvgAttribute: function(dataId, prop, dataValue) {
 			return prop;
 		},
 		
-		toValue: function(id, prop, measures) {
+		toSvgValue: function(dataId, prop, dataValue) {
 			switch(prop){
 				case "fill": 
-					return measures[0] > 3000 ? "red" : "green";
+					return dataValue[0] > 3000 ? "red" : "green";
 				case "stroke": 
-					if(measures.length == 1) { 
+					if(dataValue.length == 1) { 
 						return  "#000"
 					}
-					return measures[1] > 3000 ? "red" : "green";
+					return dataValue[1] > 3000 ? "red" : "green";
 			}
-			return measures;
+			return dataValue;
 		}
     });
     
