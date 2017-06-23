@@ -48,7 +48,7 @@ define([
             }
           }, {
             name: "svg",
-            type: "string",
+            type: "function",
             isRequired: true,
 			isBrowsable: false
           }

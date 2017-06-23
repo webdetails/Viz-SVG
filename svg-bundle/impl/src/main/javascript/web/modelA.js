@@ -29,14 +29,26 @@ define([
 			id: module.id,
 			// SVG Label and Class
 			styleClass: "pentaho-visual-samples-svg",
-			label: "SVG Map US",
+			label: "SVG Map",
 			props: [
 				{
 				 name: "svg",
 				 // SVG file name
-				 value: "./us.svg"
+				 value: function(){ return this.getSvgPath(this.category.attributes.at(0).dataAttribute.label);}
 				}
 			]
+		},
+		
+		getSvgPath: function(granularity){
+			switch(granularity){
+				case "Territory": 
+					return "./continents.svg";
+				case "Country": 
+					return  "./country.svg";
+				case "State Province": 
+					return "./us.svg";
+			}
+			return "./continents.svg";
 		},
 		
 	  	getSvgPartforDataID: function(dataId){
@@ -48,14 +60,32 @@ define([
 		},
 		
 		toSvgValue: function(dataId, prop, dataValue) {
+			var granularity = this.category.attributes.at(0).dataAttribute.label;
+			var rangeSales = "";
+			var rangeQuantity = "";
+			
+			switch(granularity){
+				case "Territory": 
+					rangeSales = 2000000;
+					rangeQuantity = 15000;
+					break;
+				case "Country":
+					rangeSales = 300000;
+					rangeQuantity = 3000;
+					break;
+				default:
+					rangeSales = 250000;
+					rangeQuantity = 2500;
+			}
+			
 			switch(prop){
 				case "fill": 
-					return dataValue[0] > 3000 ? "red" : "green";
+					return dataValue[0] > rangeSales ? "red" : "green";
 				case "stroke": 
 					if(dataValue.length == 1) { 
 						return  "#000"
 					}
-					return dataValue[1] > 3000 ? "red" : "green";
+					return dataValue[1] > rangeQuantity ? "red" : "green";
 			}
 			return dataValue;
 		}

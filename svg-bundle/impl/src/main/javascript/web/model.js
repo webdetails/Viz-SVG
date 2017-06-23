@@ -34,7 +34,7 @@ define([
 				{
 				 name: "svg",
 				 // SVG file name
-				 value: "./utility-vehicle-health.svg"
+				 value: function(){return "./utility-vehicle-health.svg";}
 				}
 			]
 		},
