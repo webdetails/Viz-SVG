@@ -48,7 +48,7 @@ define([
 				case "State Province": 
 					return "./us.svg";
 			}
-			return "./continents.svg";
+			return "./us.svg";
 		},
 		
 	  	getSvgPartforDataID: function(dataId){

@@ -25,8 +25,8 @@
       "pentaho/type/Context",
       "pentaho/data/Table",
       "pentaho/visual/base/view",
-      "pentaho/visual/samples/bar/model",
-      "json!./svgQuery.json"
+      "pentaho/visual/samples/bar/modelA",
+      "json!./us.json"
     ], function(Context, Table, baseViewFactory, barModelFactory, dataSpec) {
 
       // Setup up a VizAPI context.
@@ -44,8 +44,8 @@
 
       // Create the visualization view
       var viewSpec = {
-        width: 756,
-        height: 354,
+        width: 780,
+        height: 500,
         domContainer: document.getElementById("viz_div"),
         model: model
       };

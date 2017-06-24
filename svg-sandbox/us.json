@@ -1,0 +1,16 @@
+{
+  "model": [
+	{"name": "svgElementID", "type": "string", "label": "svg Element ID"},
+	{"name": "value", "type": "number", "label": "Value"}
+  ],
+  "rows": [
+	{"c": [ "CA",  250011]},
+	{"c": [ "CT",  250010]},
+	{"c": [ "MA",  250000]},
+	{"c": [ "NH",  250000]},
+	{"c": [ "NJ",  250101]},
+	{"c": [ "NY",  250000]}
+  ]
+}
+
+
