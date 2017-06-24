@@ -1,8 +1,22 @@
+/*!
+ * Copyright 2010 - 2017 Pentaho Corporation. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 define([
   "module",
-  "pentaho/visual/base",
-  "./us"
-], function(module, baseModelFactory, viewModelGenerators) {
+  "./modelGeneric"
+], function(module, baseModelFactory) {
   
   "use strict";
   
@@ -11,64 +25,70 @@ define([
     var BaseModel = context.get(baseModelFactory);
     
     var SvgModel = BaseModel.extend({
-      type: {
-        id: module.id,
-        styleClass: "pentaho-visual-samples-svg",
-        label: "SVG",
-        defaultView: "./view-svg",
-        props: [
-		  // Visual role properties
-          {
-            name: "category",
-            type: {
-              base: "pentaho/visual/role/ordinal",
-              props: {attributes: {isRequired: true, countMax: 1}}
-            }
-          },{
-            name: "measure",
-            type: {
-              base: "pentaho/visual/role/quantitative",
-              dataType: "number",
-              props: {attributes: {isRequired: true, countMax: 1}}
-            }
-          }, {
-            name: "svg",
-            type: "string",
-            value: "./us.svg",
-            isRequired: true
-          }
-        ]
-      },
-	  toViewModel: function(){
-		  
-		  var viewModel = [];
-		  
-		  var data = this.data;
-		  var nRows = data.getNumberOfRows();
-		  
-		  var fAttr = viewModelGenerators.toAttribute;
-		  var fValue = viewModelGenerators.toValue;
-		  var fProps = viewModelGenerators.toProps;
-		  
-		  var idCol = data.getColumnIndexByAttribute(this.category.attributes.at(0).dataAttribute);
-		  var measureCol = data.getColumnIndexByAttribute(this.measure.attributes.at(0).dataAttribute);
-		  
-		  for(var rowIdx=0; rowIdx < nRows; rowIdx++){
+		type: {
+			id: module.id,
+			// SVG Label and Class
+			styleClass: "pentaho-visual-samples-svg",
+			label: "SVG Map",
+			props: [
+				{
+				 name: "svg",
+				 // SVG file name
+				 value: function(){ return this.getSvgPath(this.category.attributes.at(0).dataAttribute.label);}
+				}
+			]
+		},
+		
+		getSvgPath: function(granularity){
+			switch(granularity){
+				case "Territory": 
+					return "./continents.svg";
+				case "Country": 
+					return  "./country.svg";
+				case "State Province": 
+					return "./us.svg";
+			}
+			return "./continents.svg";
+		},
+		
+	  	getSvgPartforDataID: function(dataId){
+			return ["fill", "stroke"];
+		},
+		
+		toSvgAttribute: function(dataId, prop, dataValue) {
+			return prop;
+		},
+		
+		toSvgValue: function(dataId, prop, dataValue) {
+			var granularity = this.category.attributes.at(0).dataAttribute.label;
+			var rangeSales = "";
+			var rangeQuantity = "";
 			
-			var id = data.getValue(rowIdx, idCol);
-			var props = fProps(id);
-			var measure = data.getValue(rowIdx, measureCol);
+			switch(granularity){
+				case "Territory": 
+					rangeSales = 2000000;
+					rangeQuantity = 15000;
+					break;
+				case "Country":
+					rangeSales = 300000;
+					rangeQuantity = 3000;
+					break;
+				default:
+					rangeSales = 250000;
+					rangeQuantity = 2500;
+			}
 			
-			props.forEach(function(prop){
-				
-				var attr = fAttr(id, prop, measure);
-				var value = fValue(id, prop, measure);
-
-				viewModel.push([id, attr, value]);
-			});
-		  }
-		  return viewModel;
-	  }
+			switch(prop){
+				case "fill": 
+					return dataValue[0] > rangeSales ? "red" : "green";
+				case "stroke": 
+					if(dataValue.length == 1) { 
+						return  "#000"
+					}
+					return dataValue[1] > rangeQuantity ? "red" : "green";
+			}
+			return dataValue;
+		}
     });
     
     return SvgModel;
