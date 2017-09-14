@@ -1,0 +1,39 @@
+<svg width="700" height="500" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="702" height="502" id="canvas_background" fill="#fff"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_1" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect fill="#fff" stroke-width="1.5" x="8.500021" y="5.69999" width="682.99995" height="488.999999" id="floor" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="20" y="15.700003" width="150" height="115" id="WL.06" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="20" y="398.699988" width="322.000021" height="86.000021" id="WL.22" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="350" y="12.700007" width="100" height="230" id="MI.24" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="350" y="255.700002" width="100" height="230" id="MI.41" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="460" y="15.700006" width="225.00001" height="150" id="WR.62" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="460" y="337.700006" width="225.00001" height="150" id="WR.78" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="460" y="175.700006" width="225.00001" height="150" id="WR.77" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="185.750003" y="15.700003" width="150" height="115" id="WL.07" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="20" y="143.700003" width="150" height="115" id="WL.10" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="20" y="273.700003" width="150" height="115" id="WL.19" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="187.750003" y="145.700003" width="150" height="115" id="WL.18" stroke="#000"/>
+  <rect fill="#fff" stroke-width="1.5" x="187.750003" y="270.700003" width="150" height="115" id="WL.20" stroke="#000"/>
+  <text stroke="#000" transform="matrix(2.1205704973720314,0,0,2.0917952060699463,-174.9243573255321,-94.4573446251452) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_2" y="81" x="107.5" stroke-width="0" fill="#000000">WL.06</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,-178.92435732553213,41.542655374854775) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_3" y="81" x="107.5" stroke-width="0" fill="#000000">WL.10</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,-174.92435732553213,167.54265537485477) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_4" y="81" x="107.5" stroke-width="0" fill="#000000">WL.19</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,-6.924357325532128,-95.45734462514523) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_5" y="81.478058" x="107.5" stroke-width="0" fill="#000000">WL.07</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,-4.924357325532128,42.54265537485478) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_6" y="81" x="107.028429" stroke-width="0" fill="#000000">WL.18</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,-1.924357325532128,169.54265537485475) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_7" y="81" x="107.5" stroke-width="0" fill="#000000">WL.20</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,-87.92435732553213,284.5426553748548) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_9" y="81" x="107.5" stroke-width="0" fill="#000000">WL.22</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,316.0756426744679,-69.45734462514523) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_10" y="81" x="107.5" stroke-width="0" fill="#000000">WR.62</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,316.0756426744679,89.54265537485477) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_11" y="81" x="107.5" stroke-width="0" fill="#000000">WR.77</text>
+  <text style="cursor: text;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,318.0756426744679,258.5426553748548) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_12" y="81" x="107.5" stroke-width="0" fill="#000000">WL.78</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,132.07564267446784,-34.45734462514521) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_13" y="81.478058" x="107.971571" stroke-width="0" fill="#000000">MI.24</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(2.1205704973720305,0,0,2.0917952060699454,136.07564267446784,199.54265537485477) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_14" y="81" x="107.5" stroke-width="0" fill="#000000">MI.41</text>
+ </g>
+</svg>

@@ -9,6 +9,7 @@
     "pentaho/service": {
       "${project.artifactId}_${project.version}/model": "pentaho/visual/base",
 	  "${project.artifactId}_${project.version}/modelA": "pentaho/visual/base",
+	  "${project.artifactId}_${project.version}/modelB": "pentaho/visual/base",
       "${project.artifactId}_${project.version}/config": "pentaho.config.spec.IRuleSet"
     }
   },
