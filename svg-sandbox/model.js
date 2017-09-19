@@ -15,7 +15,7 @@
  */
 define([
   "module",
-  "./modelGeneric"
+  "pentaho/visual/base"
 ], function(module, baseModelFactory) {
   
   "use strict";
@@ -25,41 +25,80 @@ define([
     var BaseModel = context.get(baseModelFactory);
     
     var SvgModel = BaseModel.extend({
-		type: {
-			id: module.id,
-			// SVG Label and Class
-			styleClass: "pentaho-visual-samples-svg",
-			label: "SVG Car",
-			props: [
-				{
-				 name: "svg",
-				 // SVG file name
-				 value: function(){return "./utility-vehicle-health.svg";}
-				}
-			]
-		},
-		//get
-	  	getSvgPartforDataID: function(dataId){
-			return ["Status", "Circle"];
+      type: {
+        id: module.id,
+        styleClass: "pentaho-visual-samples-svg",
+        label: "Generic SVG",
+        defaultView: "./view-svg",
+		isAbstract: true,
+        props: [
+		  // Visual role properties
+          {
+            name: "category",
+            type: {
+              base: "pentaho/visual/role/ordinal",
+              props: {attributes: {isRequired: true, countMax: 1}}
+            }
+          },{
+            name: "measure",
+            type: {
+              base: "pentaho/visual/role/quantitative",
+              dataType: "number",
+              props: {attributes: {isRequired: true, countMax: 2}}
+            }
+          }, {
+            name: "svg",
+            type: "function",
+            isRequired: true,
+			isBrowsable: false
+          }
+        ]
+      },
+	  toViewModel: function(){
+		  
+		  var viewModel = [];
+		  
+		  var data = this.data;
+		  var nRows = data.getNumberOfRows();
+		    
+		  var idCol = data.getColumnIndexByAttribute(this.category.attributes.at(0).dataAttribute);
+		  var measureCols = this.measure.attributes.toArray(function(attribute){
+			  return data.getColumnIndexByAttribute(attribute.dataAttribute);
+		  });
+		  
+		  for(var rowIdx=0; rowIdx < nRows; rowIdx++){
+			
+			var dataId = data.getFormattedValue(rowIdx, idCol);
+			var svgPartforDataID = this.getSvgPartforDataID(dataId);
+			var dataValue = measureCols.map(function(measureCol){
+				return data.getValue(rowIdx, measureCol);
+			});
+			
+			svgPartforDataID.forEach(function(prop){
+				
+				var id = this.toSvgId(dataId, prop, dataValue); 
+				var attr = this.toSvgAttribute(dataId, prop, dataValue);
+				var value = this.toSvgValue(dataId, prop, dataValue);
+				
+				viewModel.push([id, attr, value]);
+			},this);
+		  }
+		  return viewModel;
+	  },
+		getSvgPartforDataID: function(dataId){
+			return dataId;
 		},
 		
 		toSvgId: function(dataId, prop){
-			return dataId + prop;
+			return dataId;
 		},
 		
 		toSvgAttribute: function(dataId, prop, dataValue) {
-			switch(prop){
-				case "Status": return "text";
-				case "Circle": return "fill";
-			}
 			return prop;
 		},
 		
 		toSvgValue: function(dataId, prop, dataValue) {
-			switch(prop){
-				case "Status": return dataValue;
-				case "Circle": return dataValue > 5 ? "green" : "red";
-			}
+			return dataValue[0];
 		}
     });
     
