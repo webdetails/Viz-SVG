@@ -15,7 +15,7 @@
  */
 define([
   "module",
-  "./modelGeneric"
+  "./model"
 ], function(module, baseModelFactory) {
   
   "use strict";

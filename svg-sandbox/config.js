@@ -21,7 +21,7 @@ define(["module"], function(module) {
         priority: -1,
         select: {
           type: [
-			module.id.replace(/(\w+)$/, "model"),
+			module.id.replace(/(\w+)$/, "modelCar"),
 			module.id.replace(/(\w+)$/, "modelMap")
 		  ],
           application: "pentaho-det"
