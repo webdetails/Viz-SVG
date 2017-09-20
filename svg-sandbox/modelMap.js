@@ -80,12 +80,12 @@ define([
 			
 			switch(prop){
 				case "fill": 
-					return dataValue[0] > rangeSales ? "red" : "green";
+					return dataValue[0] > rangeSales ? "#F52F2F" : "#6E9911";
 				case "stroke": 
 					if(dataValue.length == 1) { 
 						return  "#000"
 					}
-					return dataValue[1] > rangeQuantity ? "red" : "green";
+					return dataValue[1] > rangeQuantity ? "#F52F2F" : "#6E9911";
 			}
 			return dataValue;
 		}
