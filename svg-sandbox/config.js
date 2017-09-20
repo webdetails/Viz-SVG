@@ -22,7 +22,8 @@ define(["module"], function(module) {
         select: {
           type: [
 			module.id.replace(/(\w+)$/, "modelCar"),
-			module.id.replace(/(\w+)$/, "modelMap")
+			module.id.replace(/(\w+)$/, "modelMap"),
+      module.id.replace(/(\w+)$/, "modelOffice")
 		  ],
           application: "pentaho-det"
         },
