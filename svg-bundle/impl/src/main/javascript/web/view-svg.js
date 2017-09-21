@@ -2,7 +2,7 @@ define([
   "module",
   "require",
   "pentaho/visual/base/view",
-  "./model"
+  "./modelGeneric"
 ], function(module, require, baseViewFactory, barModelFactory) {
 
   "use strict";

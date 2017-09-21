@@ -21,7 +21,7 @@ define(["module"], function(module) {
         priority: -1,
         select: {
           type: [
-      module.id.replace(/(\w+)$/, "model"),
+			module.id.replace(/(\w+)$/, "modelGeneric"),
 			module.id.replace(/(\w+)$/, "modelCar"),
 			module.id.replace(/(\w+)$/, "modelMap"),
 			module.id.replace(/(\w+)$/, "modelOffice")
