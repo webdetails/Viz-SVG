@@ -1,7 +1,7 @@
 {
   "model": [
-    {"name": "productFamily", "type": "string", "label": "Product Family"},
-    {"name": "sales",         "type": "number", "label": "Sales"}
+    {"name": "svgElementID", "type": "string", "label": "Product Family"},
+    {"name": "value",         "type": "number", "label": "Sales"}
   ],
   "rows": [
     {"c": [{"v": "cars-classic", "f": "Classic Cars"}, 2746782]},

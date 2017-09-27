@@ -24,7 +24,8 @@ define(["module"], function(module) {
 			module.id.replace(/(\w+)$/, "modelGeneric"),
 			module.id.replace(/(\w+)$/, "modelCar"),
 			module.id.replace(/(\w+)$/, "modelMap"),
-			module.id.replace(/(\w+)$/, "modelOffice")
+			module.id.replace(/(\w+)$/, "modelOffice"),
+			module.id.replace(/(\w+)$/, "modelProductLine")
 		  ],
           application: "pentaho-det"
         },
