@@ -43,12 +43,14 @@ define([
 			var idIdx = 0;
 			var attributeIdx = 1;
 			var valueIdx = 2; 
+			var formattedValueIdx = 3; 
 					
 			viewModel.forEach(function(row, rowIdx){
 				
 				var svgId = row[idIdx];
 				var attr = row[attributeIdx];
 				var value = row[valueIdx];
+				
 				
 				var item = svgDoc.getElementById(svgId);
 				if(!item) {
@@ -57,7 +59,9 @@ define([
 				
 				if (attr == "text") {
 					//CHANGING TEXT CONTENT based on svgElementID
-					item.textContent = value;
+					
+					var formattedValue = row[formattedValueIdx]
+					item.textContent = formattedValue;
 					return;
 				}
 

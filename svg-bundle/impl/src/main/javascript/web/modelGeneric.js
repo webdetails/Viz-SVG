@@ -57,7 +57,7 @@ define([
 	  toViewModel: function(){
 		  
 		  var viewModel = [];
-		  
+		  this.__caches = {};
 		  var data = this.data;
 		  var nRows = data.getNumberOfRows();
 		    
@@ -73,6 +73,9 @@ define([
 			var dataValue = measureCols.map(function(measureCol){
 				return data.getValue(rowIdx, measureCol);
 			});
+			var dataValueFormatted = measureCols.map(function(measureCol){
+				return data.getFormattedValue(rowIdx, measureCol);
+			});
 			
 			svgPartforDataID.forEach(function(prop){
 				
@@ -80,7 +83,7 @@ define([
 				var attr = this.toSvgAttribute(dataId, prop, dataValue);
 				var value = this.toSvgValue(dataId, prop, dataValue);
 				
-				viewModel.push([id, attr, value]);
+				viewModel.push([id, attr, value, dataValueFormatted]);
 			},this);
 		  }
 		  return viewModel;
