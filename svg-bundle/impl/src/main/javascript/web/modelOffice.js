@@ -34,7 +34,7 @@ define([
 				{
 				 name: "svg",
 				 // SVG file name
-				 value: function(){return "./officeLayout.svg";}
+				 value: function(){return "./officeFloor.svg";}
 				}
 			]
 		},
