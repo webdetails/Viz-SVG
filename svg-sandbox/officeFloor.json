@@ -1,0 +1,21 @@
+{
+  "model": [
+	{"name": "svgElementID", "type": "string", "label": "svg Element ID"},
+	{"name": "value", "type": "number", "label": "Value"}
+  ],
+  "rows": [
+	{"c": [ "shipping_area",  80]},
+	{"c": [ "file_room",  45]},
+	{"c": [ "lunch_area",  60]},
+	{"c": [ "vp_office",  75]},
+	{"c": [ "computer_room",  65]},
+	{"c": [ "desk_1",  10]},
+	{"c": [ "desk_2",  90]},
+	{"c": [ "desk_3",  30]},
+	{"c": [ "reception_area",  95]},
+	{"c": [ "desk_group_2",  45]},
+	{"c": [ "desk_group_1",  64]}
+  ]
+}
+
+
