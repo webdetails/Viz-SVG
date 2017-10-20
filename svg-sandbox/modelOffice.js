@@ -29,7 +29,7 @@ define([
 			id: module.id,
 			// SVG Label and Class
 			styleClass: "pentaho-visual-samples-svg",
-			label: "SVG Layout",
+			label: "SVG Office",
 			props: [
 				{
 				 name: "svg",
