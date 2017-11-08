@@ -13,33 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-define([
-  "module",
-  "./modelGeneric"
-], function(module, baseModelFactory) {
+define(function() {
   
   "use strict";
   
-  return function(context) {
-    
-    var BaseModel = context.get(baseModelFactory);
+  return ["./modelGeneric", function(BaseModel) {
     
     var SvgModel = BaseModel.extend({
-		type: {
-			id: module.id,
+		$type: {
 			// SVG Label and Class
 			styleClass: "pentaho-visual-samples-svg",
-			label: "SVG Map",
-			props: [
-				{
-				 name: "svg",
-				 // SVG file name
-				 value: function(){ return this.getSvgPath(this.category.attributes.at(0).dataAttribute.label);}
-				}
-			]
+			label: "SVG Map"
 		},
 		
-		getSvgPath: function(granularity){
+		getSvgPath: function(){
+			
+			var granularityFieldName = this.category.attributes.at(0).name;
+			var granularityColIndex = this.data.getColumnIndexByAttribute(granularityFieldName);
+			var granularity = this.data.getColumnLabel(granularityColIndex);
+			
 			switch(granularity){
 				case "Territory": 
 					return "./continents.svg";
@@ -92,5 +84,5 @@ define([
     });
     
     return SvgModel;
-  };
+  }];
 });

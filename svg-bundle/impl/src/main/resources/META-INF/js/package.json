@@ -6,12 +6,14 @@
   "license": "MIT",
 
   "config": {
-    "pentaho/service": {
-	  "${project.artifactId}_${project.version}/modelProductLine": "pentaho/visual/base",
-      "${project.artifactId}_${project.version}/modelCar": "pentaho/visual/base",
-      "${project.artifactId}_${project.version}/modelMap": "pentaho/visual/base",
-      "${project.artifactId}_${project.version}/modelOffice": "pentaho/visual/base",
-      "${project.artifactId}_${project.version}/config": "pentaho.config.spec.IRuleSet"
+     "pentaho/typeInfo": {
+	  "${project.artifactId}_${project.version}/modelProductLine": {"base": "pentaho/visual/base/model"},
+      "${project.artifactId}_${project.version}/modelCar": {"base": "pentaho/visual/base/model"},
+      "${project.artifactId}_${project.version}/modelMap": {"base": "pentaho/visual/base/model"},
+      "${project.artifactId}_${project.version}/modelOffice": {"base": "pentaho/visual/base/model"},
+    },
+    "pentaho/instanceInfo": {
+      "${project.artifactId}_${project.version}/config": {"type": "pentaho.config.spec.IRuleSet"}
     }
   },
 

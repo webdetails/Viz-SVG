@@ -13,37 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-define([
-  "module",
-  "./modelGeneric"
-], function(module, baseModelFactory) {
+define(function() {
   
   "use strict";
   
-  return function(context) {
-    
-    var BaseModel = context.get(baseModelFactory);
+  return ["./modelGeneric", function(BaseModel) {
     
     var SvgModel = BaseModel.extend({
-		type: {
-			id: module.id,
+		$type: {
 			// SVG Label and Class
 			styleClass: "pentaho-visual-samples-svg",
 			label: "SVG Product Line",
 			props: [
 				{
-					 name: "svg",
-					 // SVG file name
-					 value: function(){return "./SteelWheels.svg";}
-				},
-				{
 					name: "measure",
-					type: {
-					  props: {attributes: { countMax: 1}}
-					}
+					attributes: { countMax: 1}
 				}
 			]
 		},
+		
+		getSvgPath: function() {
+			return "./SteelWheels.svg"; 
+		},
+		
 		//get
 	  	getSvgPartforDataID: function(dataId){
 			return ["Value", "Fill", "TextFill"];
@@ -84,5 +76,5 @@ define([
     });
     
     return SvgModel;
-  };
+  }];
 });

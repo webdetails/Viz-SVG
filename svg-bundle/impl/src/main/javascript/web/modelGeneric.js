@@ -13,20 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-define([
-  "module",
-  "pentaho/visual/base"
-], function(module, baseModelFactory) {
+define(function() {
   
   "use strict";
   
-  return function(context) {
-    
-    var BaseModel = context.get(baseModelFactory);
+  return ["pentaho/visual/base/model", function(BaseModel) {
     
     var SvgModel = BaseModel.extend({
-      type: {
-        id: module.id,
+      $type: {
         styleClass: "pentaho-visual-samples-svg",
         label: "Generic SVG",
         defaultView: "./view-svg",
@@ -35,25 +29,23 @@ define([
 		  // Visual role properties
           {
             name: "category",
-            type: {
-              base: "pentaho/visual/role/ordinal",
-              props: {attributes: {isRequired: true, countMax: 1}}
-            }
+            base: "pentaho/visual/role/property",
+			levels: "ordinal",
+            attributes: {isRequired: true, countMax: 1}
           },{
             name: "measure",
-            type: {
-              base: "pentaho/visual/role/quantitative",
-              dataType: "number",
-              props: {attributes: {isRequired: true, countMax: 2}}
-            }
-          }, {
-            name: "svg",
-            type: "function",
-            isRequired: true,
-			isBrowsable: false
+            base: "pentaho/visual/role/property",
+			levels: "quantitative",
+            dataType: "number",
+            attributes: {isRequired: true, countMax: 2}
           }
         ]
       },
+	  
+	  getSvgPath: function() {
+		 return null; 
+	  },
+	  
 	  toViewModel: function(){
 		  
 		  var viewModel = [];
@@ -61,7 +53,7 @@ define([
 		  var data = this.data;
 		  var nRows = data.getNumberOfRows();
 		    
-		  var idCol = data.getColumnIndexByAttribute(this.category.attributes.at(0).dataAttribute);
+		  var idCol = data.getColumnIndexByAttribute(this.category.attributes.at(0).name);
 		  var measureCols = this.measure.attributes.toArray(function(attribute){
 			  return data.getColumnIndexByAttribute(attribute.dataAttribute);
 		  });
@@ -106,5 +98,5 @@ define([
     });
     
     return SvgModel;
-  };
+  }];
 });
