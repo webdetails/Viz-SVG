@@ -22,7 +22,7 @@ To create a new visualization one must:
 * and, register the new model on config.js
 
 New visualizations are materialized on .kar files that will be deployed on your Pentaho BA server, or on your Pentaho Data Integration. 
-Manually, this deploy is done by simply copy your .kar to _..\pentaho-solutions\system\karaf\deploy_ (BA server), or _data-integration\system\karaf\deploy_ (Data Integration), but you can also make your visualizations available over Pentaho Marketplace (the same way we made Viz-SVG).
+Manually, this deploy is done by simply copy your .kar to _..\pentaho-solutions\system\karaf\deploy_ (BA server), or _data-integration\system\karaf\deploy_ (Data Integration), but you can also make your visualizations available over Pentaho Marketplace (the same way we made with Viz-SVG).
 
 ### How to build  your own visualization using Viz-SVG project 
 
@@ -44,13 +44,15 @@ The project structure is composed of two main directories:
 		* .svg file that will make your visualization
 		* your .js model file (use one available has reference) - here is where you will transform your business data into SVG changing elements
 
-* **svg-bandle** - a maven folder structure to produce the .kar file that will be deployed on Pentaho
+* **svg-bundle** - a maven folder structure to produce the .kar file that will be deployed on Pentaho
+
+### Development
 
 With this folder structure, the development process can be summarized in the following steps: 
 
 * you will start by [prepare your environment to develop](http://pentaho.github.io/pentaho-platform-plugin-common-ui/platform/visual/samples/bar-d3-sandbox/step1-environment-preparation)
 * then you will create your visualization on **svg-sandbox**, making the necessary changes over the **files to update**, **adding the new files**, and testing it using index.html on your browser
-* and finally, you will copy your new visualization to your own svg-bundle file structure to produce the intended .kar file
+* and finally, you will copy your new visualization to your own **svg-bundle** file structure to produce the intended .kar file
 
 ### How to build the .kar file
 
