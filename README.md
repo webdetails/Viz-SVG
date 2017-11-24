@@ -12,8 +12,8 @@ Summarized, visualizations are composed of:
 
 * a generic model, that all new visualizations extend (javascript file)
 * a config file to register current available visualizations (js file)
-* a view to implement the SVG rendering (js file)
-* and, a specific model, representing the visualization, that extends the generic model and implements the actual visualizaion logic.
+* a view to control the SVG rendering (js file)
+* and, a specific model (js file), representing the visualization, that extends the generic model and implements the actual visualizaion logic.
 
 To create a new visualization one must:
 
@@ -22,17 +22,17 @@ To create a new visualization one must:
 * and, register the new model on config.js
 
 New visualizations are materialized on .kar files that will be deployed on your Pentaho BA server, or on your Pentaho Data Integration. 
-Manually, this deploy is done by simply copy your .kar to ..\pentaho-solutions\system\karaf\deploy (BA server), or data-integration\system\karaf\deploy (Data Integration), but you can also make your visualizations available over Pentaho Marketplace (the same way we made Viz-API).
+Manually, this deploy is done by simply copy your .kar to _..\pentaho-solutions\system\karaf\deploy_ (BA server), or _data-integration\system\karaf\deploy_ (Data Integration), but you can also make your visualizations available over Pentaho Marketplace (the same way we made Viz-SVG).
 
-### How to build  your own visualization using Viz-API project 
+### How to build  your own visualization using Viz-SVG project 
 
-**Before Start:** due to changes on Pentaho Viz-API from 7.1 to 8.0 the project has two branchs: **master** has code related with 8.0 Pentaho Verison, and branch **7.1** should be used for visualizations on that Pentaho version. 
+**Attention:** due to changes on Pentaho Viz-API from 7.1 to 8.0 the project has two branchs: **master** has code related with 8.0 Pentaho Verison, and branch **7.1** should be used for visualizations on that Pentaho version. Choose your branch before starting.  
 
-A good way to leverage this powerful visualization technology within Pentaho is to start your own project based on Viz-API (either by forking it, or by creating a similar project structure, with all the essential files). 
+A good way to leverage this powerful visualization technology within Pentaho is to start your own project based on Viz-SVG (either by forking it, or by creating a similar project structure, with all the essential files). 
 
 The project structure is composed of two main directories:
 
-* **svg-sandbox** - holds the files that represent the development phase of each new visualization (improves significantly the process because you don't need to create the .kar)
+* **svg-sandbox** - holds the files that represent the development phase of each new visualization (which improves significantly the process because you don't need to create the .kar)
 	* backbone files (those that you don't need to change)
 		* modelGeneric.js
 		* view-svg.js
@@ -42,15 +42,15 @@ The project structure is composed of two main directories:
 	* files to add
 		* .json file with some fake data to feed your visualization
 		* .svg file that will make your visualization
-		* your .js model file (use one available has reference) - here is where you will transform your business data into SVG changing elements.
+		* your .js model file (use one available has reference) - here is where you will transform your business data into SVG changing elements
 
 * **svg-bandle** - a maven folder structure to produce the .kar file that will be deployed on Pentaho
 
-With this structure, the development process can be summarized in the following steps: 
+With this folder structure, the development process can be summarized in the following steps: 
 
 * you will start by [prepare your environment to develop](http://pentaho.github.io/pentaho-platform-plugin-common-ui/platform/visual/samples/bar-d3-sandbox/step1-environment-preparation)
-* then you will create your visualization on svg-sandbox, making the necessary changes over the **files to update**, **adding the new files**, and testing it using index.html on your browser
-* and finally, you will fill you own svg-bundle file structure to produce the intended .kar file
+* then you will create your visualization on **svg-sandbox**, making the necessary changes over the **files to update**, **adding the new files**, and testing it using index.html on your browser
+* and finally, you will copy your new visualization to your own svg-bundle file structure to produce the intended .kar file
 
 ### How to build the .kar file
 
