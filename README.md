@@ -10,7 +10,7 @@ Viz-SVG is essentially using [Pentaho Viz-API](https://help.pentaho.com/Document
 
 Summarized, visualizations are composed of:
 
-* a generic model, that all new visualizations extend (javascript file)
+* a generic model, that all new visualizations extend from (javascript file)
 * a config file to register current available visualizations (js file)
 * a view to control the SVG rendering (js file)
 * and, a specific model (js file), representing the visualization, that extends the generic model and implements the actual visualizaion logic.
@@ -21,10 +21,14 @@ To create a new visualization one must:
 * create a model with the business logic used to change the SVG
 * and, register the new model on config.js
 
-New visualizations are materialized on .kar files that will be deployed on your Pentaho BA server, or on your Pentaho Data Integration. 
-Manually, this deploy is done by simply copy your .kar to _..\pentaho-solutions\system\karaf\deploy_ (BA server), or _data-integration\system\karaf\deploy_ (Data Integration), but you can also make your visualizations available over Pentaho Marketplace (the same way we made with Viz-SVG).
+New visualizations are materialized on .kar files that can be deployed on:
 
-### How to build  your own visualization using Viz-SVG project 
+* your Pentaho BA server (_..\pentaho-solutions\system\karaf\deploy_)
+* or on your Pentaho Data Integration (_data-integration\system\karaf\deploy_)
+
+You can deploy it manually, simply copy your .kar to  destination folder, or you can make it available over Pentaho Marketplace (the same way we made with Viz-SVG visualiztions).
+
+## How to build  your own visualization using Viz-SVG project 
 
 **Attention:** due to changes on Pentaho Viz-API from 7.1 to 8.0 the project has two branchs: **master** has code related with 8.0 Pentaho Verison, and branch **7.1** should be used for visualizations on that Pentaho version. Choose your branch before starting.  
 
@@ -46,7 +50,7 @@ The project structure is composed of two main directories:
 
 * **svg-bundle** - a maven folder structure to produce the .kar file that will be deployed on Pentaho
 
-### Development
+### Development Steps
 
 With this folder structure, the development process can be summarized in the following steps: 
 
