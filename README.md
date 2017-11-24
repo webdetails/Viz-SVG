@@ -56,19 +56,22 @@ With this folder structure, the development process can be summarized in the fol
 
 ### How to build the .kar file
 
-.kar file is created using the svg-bundle folder structure. This folder has already a maven like structure that you can use to generate your .kar. So, you only need to update some files (_config.js_ and _package.json_), remove the visualizations that doesn't make sense for your project (.svg files and .js models), and add the new files from your new visualizations.
+.kar file is created using the **svg-bundle** folder structure. This folder has already a maven like structure that you can use to generate your .kar. So, you only need to update some files (_package.json_ and _pom.xml_(s)), remove the visualizations that doesn't make sense for your project (.svg files and .js models), and add the new files from your new visualizations.
 
-The main artefacts that you developed on svg-sandbox should be copied to **svg-bundle/impl/src/main/javascript/web/**:
+The main artefacts that you developed on **svg-sandbox** should be copied to:
 
-* your .svg file
-* and, your model.js
+* **svg-bundle/impl/src/main/javascript/web/**:
+	* your .svg file
+	* and, your model.js
+* **svg-bundle/impl/src/main/javascript/web/**
+	* config.js
 
-Besides that you need to:
+Besides that you need to update 
 
-* register your model on **svg-bundle/impl/src/main/javascript/web/config.js** 
-* and, update **svg-bundle/impl/src/main/resources/META-INF/js/package.json**, replacing the models by your new model.
+* **svg-bundle/impl/src/main/resources/META-INF/js/package.json**, replacing the models by your new model.
+* _pom.xml_ - there is one inside every folder on **svg-bundle**, and to change the generated .kar name's file, you need to update all of them.
 
-.kar is generated with _mvn package_ command, executed inside **svg-bundle**, and is going to available for future use inside **svg-bundle/assemblies/target**. Copy it to your current Pentaho installation (..\pentaho-solutions\system\karaf\deploy) and test it on Analyzer.
+To generate.kar execute _mvn package_ command, inside **svg-bundle**. The generated file will be available for future use inside **svg-bundle/assemblies/target**. Copy it to your current Pentaho installation (..\pentaho-solutions\system\karaf\deploy) and test it on Pentaho Analyzer.
 
 
 
